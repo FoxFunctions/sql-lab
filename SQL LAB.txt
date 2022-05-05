@@ -1,0 +1,78 @@
+
+Select all the rows from the "Customers" table. 
+ SELECT * FROM CUSTOMERS;
+
+
+
+Get distinct countries from the Customers table. 
+SELECT DISTINCT country FROM Customers; 
+
+
+Get all the rows from the table Customers where the Customer’s ID starts with “BL”. 
+SELECT CustomerID FROM Customers Where CustomerID LIKE ‘bl%’; 
+
+
+Get the first 100 records of the orders table. DISCUSS: Why would you do this? What else would you likely need to include in this query? 
+SELECT TOP 100 * FROM ORDERS;
+
+
+
+Get all customers that live in the postal codes 1010, 3012, 12209, and 05023. 
+SELECT * FROM Customers WHERE PostalCode IN (’1010’,’3012’,’12209’,’05023’); 
+
+
+Get all orders where the ShipRegion is not equal to NULL.
+ SELECT * FROM ORDERS WHERE ShipRegion IS NOT NULL;  
+
+
+Get all customers ordered by the country, then by the city.  
+  SELECT * FROM Customers ORDER BY Country; || SELECT * FROM Customers ORDER BY City;
+
+
+
+Add a new customer to the customers table. You can use whatever values. 
+INSERT INTO Customers
+VALUES ('AUSTI', 'Austin Industries', 'Austin Howell', 'Big Boss', '111 sesame street', 'Akron', 'OH', '44221', 'USA', '5555555','5555555');
+
+
+ 
+Update all ShipRegion to the value ‘EuroZone’ in the Orders table, where the ShipCountry is equal to France.  
+
+UPDATE Orders
+SET ShipRegion = 'EuroZone'
+WHERE ShipCountry = 'France';
+
+
+ 
+Delete all orders from OrderDetails that have quantity of 1. 
+
+DELETE FROM [Order Details]
+WHERE Quantity =1;
+
+
+ 
+Find the CustomerID that placed order 10290 (orders table).
+SELECT CustomerID FROM Orders
+WHERE OrderID Like ('10290');
+
+
+ 
+Join the orders table to the customers table.
+SELECT Orders.*, Customers.*
+FROM ORDERS, Customers
+Inner Join Customers ON Orders.OrderID = Customers.CustomerID;
+
+
+ 
+Get employees’ firstname for all employees who report to no one.
+SELECT FirstName FROM Employees
+WHERE ReportsTo IS Null;
+
+
+ 
+Get employees’ firstname for all employees who report to Andrew.
+
+SELECT FirstName FROM Employees
+WHERE ReportsTo LIKE ('2');
+
+ 
